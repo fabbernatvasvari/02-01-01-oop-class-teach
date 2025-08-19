@@ -23,5 +23,26 @@
     /// </example>
     public class SchoolClass
     {
+        // --------------------------------------------------------------------
+        // Fields (belső állapot). Privát, _camelCase elnevezés.
+        // --------------------------------------------------------------------
+
+
+        /// <summary>
+        /// Ozstály évfolyama: 
+        /// USA kontextusban: Grade → megfelelő.
+        /// UK/magyar kontextusban: inkább Year vagy SchoolYear.
+        /// </summary>
+        private byte _grade;
+
+        /// <summary>
+        /// Osztály betűjele. Readonly mező: csak konstruktorban kaphat értéket.
+        /// </summary>
+        private readonly char _gradeLetter;
+
+        /// <summary>
+        /// Utolsó évfolyam (pl. 12 vagy 13).
+        /// </summary>
+        private byte _lastGrade;
     }
 }
