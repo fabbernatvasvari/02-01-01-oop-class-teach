@@ -141,5 +141,30 @@ namespace SchoolClassManagmentProject.Models
         /// Igaz, ha az osztály még aktív (nem végzett).
         /// </summary>
         public bool IsActive => !HasGraduated;
+
+        /// <summary>
+        /// Az utolsó évfolyam beállítása üzleti szabállyal:
+        /// csak akkor emelhető, ha nagyobb, mint az aktuális year (véd a visszaállítástól).
+        /// </summary>
+        /// <param name="newGrade">Új utolsó évfolyam.</param>
+        /// <exception cref="LastGradeModificationErrorException">
+        /// Ha a paraméter nem nagyobb a jelenlegi <see cref="Grade"/> értéknél.
+        /// </exception>
+        public void SetLastGrade(byte newGrade)
+        {
+            if (newGrade > _grade)
+            {
+                LastGrade = newGrade;
+            }
+            else
+            {
+                // Névvel ellátott paraméter és belső kontextus átadása.
+                throw new LastGradeModificationErrorException(
+                    $"{nameof(SchoolClass)}.{nameof(SetLastGrade)}: '{nameof(newGrade)}' ({newGrade}) nem nagyobb, mint a jelenlegi '{nameof(Grade)}' ({_grade}).",
+                    nameof(newGrade),
+                    null
+                    );
+            }
+        }
     }
 }
