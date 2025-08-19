@@ -62,5 +62,31 @@ namespace SchoolClassManagmentProject.Models
         /// Létrehozási időpont (immutábilis). Példa getter-only auto-property-re.
         /// </summary>
         public DateTime CreatedAt { get; } = DateTime.Now;
+
+        /// <summary>
+        /// Teljes értékű konstruktor.
+        /// </summary>
+        /// <param name="grade">Aktuális évfolyam (pl. 11).</param>
+        /// <param name="gradeLetter">Osztály betűjele (kis- és nagybetű megengedett).</param>
+        /// <param name="lastGrade">Utolsó évfolyam (pl. 12).</param>
+        /// <exception cref="ArgumentException">Ha a betűjel nem érvényes.</exception>
+        public SchoolClass(byte grade, char gradeLetter, byte lastGrade)
+        {
+            _grade = grade;
+
+            // Normalize: belső tárolás nagybetűsen (adat-konzisztencia).
+            char upperLetter = char.ToUpper(gradeLetter);
+
+            if (!ValidGradeLetters.Contains(upperLetter))
+            {
+                // Konkrét, akcióképes üzenet és aktuális input visszaadása.
+                throw new ArgumentException(
+                    $"Érvénytelen osztály betűjel: '{gradeLetter}'. Engedélyezett: {string.Join(", ", ValidGradeLetters)}",
+                    nameof(gradeLetter));
+            }
+
+            _gradeLetter = upperLetter;
+            _lastGrade = lastGrade;
+        }
     }
 }
