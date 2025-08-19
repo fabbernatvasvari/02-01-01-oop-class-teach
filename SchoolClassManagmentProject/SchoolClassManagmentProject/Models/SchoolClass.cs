@@ -1,0 +1,27 @@
+﻿namespace SchoolClassManagmentProject.Models
+{
+    /// <summary>
+    /// Reprezentál egy iskolai osztályt (pl. 11.A).
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Oktatási célokra tartalmaz több OOP mintát: readonly field, getter-only auto-property (immutabilitás),
+    /// statikus adattag, konstruktor-láncolás, property-backed field, kifejezésalapú property, ToString() override.
+    /// </para>
+    /// <para>
+    /// </para>
+    /// </remarks>
+    /// <example>
+    /// <code>
+    /// var cls1 = new SchoolClass(11, 'b', 12); // kisbetű is megengedett
+    /// Console.WriteLine(cls1.Name);            // "11. B"
+    /// Console.WriteLine(cls1);                 // ToString()-gel formázott sor
+    ///
+    /// var cls2 = new SchoolClass();            // 0.A alapértékekkel (ValidGradeLetters[0])
+    /// Console.WriteLine(cls2.Name);            // "0. A"
+    /// </code>
+    /// </example>
+    public class SchoolClass
+    {
+    }
+}
