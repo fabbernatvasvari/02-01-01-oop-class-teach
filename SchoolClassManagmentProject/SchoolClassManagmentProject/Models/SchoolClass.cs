@@ -120,5 +120,26 @@ namespace SchoolClassManagmentProject.Models
             get => _lastGrade;
             private set => _lastGrade = value;
         }
+
+        // Kifejezésalapú property-k
+        /// <summary>
+        /// Kényelmi, kifejezésalapú property, formázott osztály-névvel (pl. "11. B").
+        /// </summary>
+        public string Name => $"{_grade}. {_gradeLetter}";
+
+        /// <summary>
+        /// Igaz, ha az osztály már túl van az utolsó évfolyamon.
+        /// </summary>
+        public bool HasGraduated => _grade > _lastGrade;
+
+        /// <summary>
+        /// Igaz, ha az osztály az utolsó évfolyamon van.
+        /// </summary>
+        public bool IsGraduate => _grade == _lastGrade;
+
+        /// <summary>
+        /// Igaz, ha az osztály még aktív (nem végzett).
+        /// </summary>
+        public bool IsActive => !HasGraduated;
     }
 }
