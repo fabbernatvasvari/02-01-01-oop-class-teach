@@ -177,5 +177,15 @@ namespace SchoolClassManagmentProject.Models
                 Grade = (byte)(Grade + 1);
             }
         }
+
+        /// <summary>
+        /// Emberbarát string reprezentáció (diagnosztika/log).
+        /// </summary>
+        public override string ToString()
+        {
+            // Ipari minta: kis, gyors ToString – kerülje a nehéz hívásokat és kivételeket.
+            string status = IsActive ? "aktív" : (HasGraduated ? "végzett" : "érettségiző");
+            return $"{Name} | Utolsó évfolyam: {LastGrade} | Státusz: {status} | Létrehozva: {CreatedAt}";
+        }
     }
 }
