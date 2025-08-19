@@ -88,5 +88,13 @@ namespace SchoolClassManagmentProject.Models
             _gradeLetter = upperLetter;
             _lastGrade = lastGrade;
         }
+
+        /// <summary>
+        /// Üres konstruktor – a paraméteres konstruktorra láncol, érvényes alapértékekkel.
+        /// </summary>
+        public SchoolClass()
+            : this(byte.MinValue, ValidGradeLetters[0], byte.MinValue)
+        {
+        }
     }
 }
