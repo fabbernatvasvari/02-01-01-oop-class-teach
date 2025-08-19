@@ -96,5 +96,29 @@ namespace SchoolClassManagmentProject.Models
             : this(byte.MinValue, ValidGradeLetters[0], byte.MinValue)
         {
         }
+
+        // Property-k
+        /// <summary>
+        /// Aktuális évfolyam (írható).
+        /// </summary>
+        public byte Grade
+        {
+            get => _grade;
+            set => _grade = value;
+        }
+
+        /// <summary>
+        /// Osztály betűjele (csak olvasható). Belsőleg mindig nagybetű.
+        /// </summary>
+        public char GradeLetter => _gradeLetter;
+
+        /// <summary>
+        /// Utolsó évfolyam; kívülről nem írható (encapsulation).
+        /// </summary>
+        public byte LastGrade
+        {
+            get => _lastGrade;
+            private set => _lastGrade = value;
+        }
     }
 }
