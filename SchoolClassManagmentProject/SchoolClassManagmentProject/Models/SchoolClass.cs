@@ -187,5 +187,15 @@ namespace SchoolClassManagmentProject.Models
             string status = IsActive ? "aktív" : (HasGraduated ? "végzett" : "érettségiző");
             return $"{Name} | Utolsó évfolyam: {LastGrade} | Státusz: {status} | Létrehozva: {CreatedAt}";
         }
+
+        /// <summary>
+        /// Destruktor
+        /// DEMÓ: finalizer. Ipari kódban ne használjuk, kivéve unmanaged erőforrás felszabadítására.
+        /// </summary>
+        ~SchoolClass()
+        {
+            // Figyelem: finalizer futása nem determinisztikus; naplózáshoz nem megbízható.
+            Console.WriteLine($"{_grade}. {_gradeLetter} osztály megszűnt. (Létrehozva: {CreatedAt})");
+        }
     }
 }
