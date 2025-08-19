@@ -54,5 +54,13 @@ namespace SchoolClassManagmentProject.Models
         /// Érvényes osztály-betűjelek. Bemeneti validációhoz használjuk.
         /// </summary>
         public static readonly char[] ValidGradeLetters = { 'A', 'B', 'C', 'D' };
+
+        // Public API-k
+        // Az API az Application Programming Interface rövidítése.
+        // Az a felület, amit egy osztály mások számára láthatóvá tesz és használatra felkínál.
+        /// <summary>
+        /// Létrehozási időpont (immutábilis). Példa getter-only auto-property-re.
+        /// </summary>
+        public DateTime CreatedAt { get; } = DateTime.Now;
     }
 }
