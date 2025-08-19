@@ -1,4 +1,6 @@
-﻿namespace SchoolClassManagmentProject.Models
+﻿using System.Reflection;
+
+namespace SchoolClassManagmentProject.Models
 {
     /// <summary>
     /// Reprezentál egy iskolai osztályt (pl. 11.A).
@@ -44,5 +46,13 @@
         /// Utolsó évfolyam (pl. 12 vagy 13).
         /// </summary>
         private byte _lastGrade;
+
+        // Statikus adattag
+        // Nem egy példányhoz tartozik, hanem az osztályhoz.
+        // Az osztály összes példánya ugyanazt az értéket látja és használja.
+        /// <summary>
+        /// Érvényes osztály-betűjelek. Bemeneti validációhoz használjuk.
+        /// </summary>
+        public static readonly char[] ValidGradeLetters = { 'A', 'B', 'C', 'D' };
     }
 }
