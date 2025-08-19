@@ -166,5 +166,16 @@ namespace SchoolClassManagmentProject.Models
                     );
             }
         }
+
+        /// <summary>
+        /// Évfolyam léptetése egy évvel, de csak aktív osztály esetén.
+        /// </summary>
+        public void AdvanceGrade()
+        {
+            if (IsActive)
+            {
+                Grade = (byte)(Grade + 1);
+            }
+        }
     }
 }
