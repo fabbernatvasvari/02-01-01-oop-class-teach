@@ -10,14 +10,18 @@ namespace SchoolClassManagmentProject.Models
 
         public LastGradeModificationErrorException()
         {
+            Console.WriteLine("Something Wrong with Last Grade");
         }
 
         public LastGradeModificationErrorException(string? message) : base(message)
         {
+            Console.WriteLine("Something Wrong with Last Grade" + message);
+
         }
 
         public LastGradeModificationErrorException(string? message, Exception? innerException) : base(message, innerException)
         {
+            Console.WriteLine("Something Wrong with Last Grade" + message + innerException.Message);
         }
 
         public LastGradeModificationErrorException(string v1, string v2, object value)
